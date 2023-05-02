@@ -30,8 +30,6 @@ impl Config {
             return Err("not enough arguments");
         }
 
-        dbg!(args);
-
         let query = args[1].clone();
         let file_path = args[2].clone();
         let options = &args[3..];
