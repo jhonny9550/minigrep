@@ -30,10 +30,14 @@ impl Config {
             return Err("not enough arguments");
         }
 
+        dbg!(args);
+
         let query = args[1].clone();
         let file_path = args[2].clone();
+        let options = &args[3..];
 
-        let ignore_case = env::var("IGNORE_CASE").is_ok();
+        let ignore_case =
+            options.contains(&String::from("--ignore-case")) || env::var("IGNORE_CASE").is_ok();
 
         Ok(Config {
             query,
